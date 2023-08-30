@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   send_signal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 22:24:19 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/08/30 09:30:09 by arabelo-         ###   ########.fr       */
+/*   Created: 2023/08/20 23:26:37 by arabelo-          #+#    #+#             */
+/*   Updated: 2023/08/30 08:55:08 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
-# include "../libft/inc/libft.h"
-# include <signal.h>
+#include "./inc/minitalk.h"
 
-
-int		sigaction(int signum, const struct sigaction *sa, struct sigaction *addr)
+void	send_signal(pid_t server_pid, unsigned char c)
 {
-	return (-1);
-}
-void	send_signal(pid_t server_pid, unsigned char c);
-void	handle_signal(int signal);
+	unsigned int	i;
 
-#endif
+	i = 1;
+	while (i <= 128)
+	{
+		if ((c & i) == 0)
+			kill(server_pid, SIGUSR2);
+		else
+			kill(server_pid, SIGUSR1);
+		i *= 2;
+		usleep(50);
+	}
+}
