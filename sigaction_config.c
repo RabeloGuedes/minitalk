@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   sigaction_config.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 23:02:49 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/09/09 18:00:56 by arabelo-         ###   ########.fr       */
+/*   Created: 2023/09/06 18:06:29 by arabelo-          #+#    #+#             */
+/*   Updated: 2023/09/06 18:12:16 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./inc/minitalk.h"
 
-int	main(int ac, char **av)
+void	sigaction_config(struct	sigaction *sa)
 {
-	pid_t				server_pid;
-
-	if (ac == 3)
+	if (sigaction(SIGUSR1, sa, NULL) == -1)
 	{
-		server_pid = ft_atoi(av[1]);
-		if (server_pid <= 0)
-		{
-			ft_putendl_fd("Error: Invalid server_pid!", 2);
-			exit(EXIT_FAILURE);
-		}
-		send_string(server_pid, av[2]);
-	}
-	else
-	{
-		ft_putendl_fd("Error -> Usage: ./client SERVER_PID \"Your message\"", 2);
+		ft_putendl_fd("Error: sigaction by setting SIGUSR1", 2);
 		exit(EXIT_FAILURE);
 	}
-	return (0);
+	if (sigaction(SIGUSR2, sa, NULL) == -1)
+	{
+		ft_putendl_fd("Error: sigaction by setting SIGUSR2", 2);
+		exit(EXIT_FAILURE);
+	}
 }
