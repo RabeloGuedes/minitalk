@@ -6,13 +6,13 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:34:03 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/09/09 18:37:43 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/09/12 14:28:53 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./inc/minitalk.h"
 
-void	handle_signal_bonus(int signal, struct __siginfo *siginfo, void *addr)
+void	handle_signal_bonus(int signal, siginfo_t *siginfo, void *addr)
 {
 	static int				bits_counter;
 	static unsigned char	c;
@@ -29,8 +29,11 @@ void	handle_signal_bonus(int signal, struct __siginfo *siginfo, void *addr)
 	{
 		bits_counter = 0;
 		if (c == 0 && message)
-			kill(siginfo->si_pid, SIGUSR1);
-		if (!handle_string(message, &c, &chars_counter))
+		{
+			if (kill(siginfo->si_pid, SIGUSR1) == - 1)
+				ft_putendl_fd("Could not notify the client!", 2);
+		}
+		if (!handle_string(message, c, &chars_counter))
 			return ;
 		message = get_string(message, c, chars_counter);
 		c = 0;
