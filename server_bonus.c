@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 22:35:30 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/09/09 18:38:47 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/09/12 08:41:28 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 	int					signal_res;
 
 	process_id = getpid();
-	sa.__sigaction_u.__sa_sigaction = handle_signal_bonus;
+	sa.sa_sigaction = handle_signal_bonus;
 	sa.sa_flags = 0;
 	sigemptyset(&sa.sa_mask);
 	sigaction_config(&sa);
