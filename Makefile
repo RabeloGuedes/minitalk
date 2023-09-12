@@ -12,7 +12,7 @@ FLAGS = -Wall -Wextra -Werror
 DEBUG_FLAGS = -g -fsanitize=address
 
 SRC_FILES = send_signal.c handle_signal.c check_signal.c sigaction_config.c handle_string.c get_string.c\
-			send_string.c handle_signal_bonus.c
+			send_string.c handle_signal_bonus.c is_pid_valid.c
 
 OBJS_FILES = $(SRC_FILES:.c=.o)
 
