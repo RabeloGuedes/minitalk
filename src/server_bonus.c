@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 22:35:30 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/09/13 08:08:11 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:46:05 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	main(void)
 {
 	pid_t				process_id;
 	struct sigaction	sa;
-	int					signal_res;
 
 	process_id = getpid();
 	sa.sa_sigaction = handle_signal_bonus;
