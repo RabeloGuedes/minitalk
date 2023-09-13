@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 08:54:35 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/09/12 09:04:37 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/09/13 08:04:31 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_pid_valid(char *pid_str)
 
 	pid_str_len = ft_strlen(pid_str);
 	pid = ft_atoll(pid_str);
-	if (pid <= 0 || pid_str_len > 11 || pid > INT32_MAX)
+	if (pid <= 0 || pid_str_len > 10 || pid > INT32_MAX)
 		return (0);
 	return (1);
 }
