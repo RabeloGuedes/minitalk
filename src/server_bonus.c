@@ -6,11 +6,11 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 22:35:30 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/09/13 14:46:05 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:20:50 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minitalk.h"
+#include "minitalk.h"
 
 int	main(void)
 {

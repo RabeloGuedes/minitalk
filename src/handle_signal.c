@@ -6,11 +6,11 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 23:38:59 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/09/13 08:08:11 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/09/13 15:20:50 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/minitalk.h"
+#include "minitalk.h"
 
 void	handle_signal(int signal)
 {

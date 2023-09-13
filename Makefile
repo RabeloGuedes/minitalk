@@ -4,7 +4,7 @@ CLIENT = client
 
 LIBFT_DIR = libft
 LIBFT = libft/libft.a
-INC_FLAGS = -I ./inc 
+INC_FLAGS = -I ./inc -I $(LIBFT_DIR)/inc
 
 CC = cc
 
