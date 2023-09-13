@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_signal.c                                     :+:      :+:    :+:   */
+/*   send_string.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 18:01:08 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/09/06 18:02:59 by arabelo-         ###   ########.fr       */
+/*   Created: 2023/09/07 21:24:45 by arabelo-          #+#    #+#             */
+/*   Updated: 2023/09/13 08:08:11 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./inc/minitalk.h"
+#include "../inc/minitalk.h"
 
-void	check_signal(int signal)
+void	send_string(pid_t server_pid, char *str)
 {
-	if (signal == SIGUSR1)
-		ft_printf("Message sucessfully received!\n");
-	else
-		ft_printf("Something went wrong, message unsucessfully received!\n");
+	while (*str)
+		send_signal(server_pid, *str++);
+	send_signal(server_pid, '\0');
 }

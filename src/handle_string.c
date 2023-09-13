@@ -6,11 +6,11 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 20:22:38 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/09/12 07:57:04 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/09/13 08:08:11 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./inc/minitalk.h"
+#include "../inc/minitalk.h"
 
 int	handle_string(char *message, unsigned char c, int *chars_counter)
 {

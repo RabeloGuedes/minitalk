@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server_bonus.c                                     :+:      :+:    :+:   */
+/*   check_signal.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 22:35:30 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/09/12 14:22:36 by arabelo-         ###   ########.fr       */
+/*   Created: 2023/09/06 18:01:08 by arabelo-          #+#    #+#             */
+/*   Updated: 2023/09/13 08:08:11 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./inc/minitalk.h"
+#include "../inc/minitalk.h"
 
-int	main(void)
+void	check_signal(int signal)
 {
-	pid_t				process_id;
-	struct sigaction	sa;
-	int					signal_res;
-
-	process_id = getpid();
-	sa.sa_sigaction = handle_signal_bonus;
-	sa.sa_flags = SA_SIGINFO;
-	sigemptyset(&sa.sa_mask);
-	sigaction_config(&sa);
-	ft_printf("%i\n", process_id);
-	while (1)
-		pause();
-	return (0);
+	if (signal == SIGUSR1)
+		ft_printf("Message sucessfully received!\n");
+	else
+		ft_printf("Something went wrong, message unsucessfully received!\n");
 }

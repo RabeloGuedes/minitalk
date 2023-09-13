@@ -1,59 +1,49 @@
 NAME = minitalk
-LIB_NAME = l_$(NAME)
-SERVER = server
-CLIENT = client
+SERVER = $(SRC_DIR)/server
+CLIENT = $(SRC_DIR)/client
+B_SERVER = $(SRC_DIR)/server_bonus
+B_CLIENT = $(SRC_DIR)/client_bonus
 
-LIBFT = libft
+
+LIBFT_DIR = libft
+LIBFT = $(LIBFT)/libft.a
 INC_FLAGS = -I ./inc
 
 CC = cc
 
-FLAGS = -Wall -Wextra -Werror
-DEBUG_FLAGS = -g -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -g -fsanitize=address,undefined
 
-SRC =	send_signal.c handle_signal.c check_signal.c\
-		sigaction_config.c handle_string.c get_string.c\
-		send_string.c handle_signal_bonus.c is_pid_valid.c
+SRC_DIR = src
 
-OBJ_DIR = obj
-OBJ	= $(addprefix $(OBJ_DIR)/,$(SRC:%.c=%.o))
+SRC =	$(SRC_DIR)/send_signal.c $(SRC_DIR)/handle_signal.c $(SRC_DIR)/check_signal.c\
+		$(SRC_DIR)/sigaction_config.c $(SRC_DIR)/handle_string.c $(SRC_DIR)/get_string.c\
+		$(SRC_DIR)/send_string.c $(SRC_DIR)/handle_signal_bonus.c $(SRC_DIR)/is_pid_valid.c\
 
 all: $(NAME)
 
-$(NAME): $(OBJ) $(SERVER) $(CLIENT)
+$(NAME): $(LIBFT_DIR)
+	@make --no-print-directory -C $(LIBFT_DIR)
 
-server:
-	@ar rc lib_$(NAME).a $(OBJ)
-	@$(CC) $(CCFLAGS) $(INC_FLAGS) $(SERVER).c -o $(SERVER) -L. -l_$(NAME)
+server: all $(SRC) $(SERVER)
+	@$(CC) $(FLAGS) $(INC_FLAGS) $(^) $(SERVER).c -o $(SERVER) $(LIBFT)
 
-client:
-	@$(CC) $(CCFLAGS) $(INC_FLAGS) $(CLIENT).c -o $(CLIENT) -L. -l_$(NAME)
-
-$(OBJ_DIR)/%.o: %.c
-	@mkdir -p $(OBJ_DIR)
-	@make -s --directory=$(LIBFT)
-	@cp $(LIBFT)/libft.a ./
-	@mv $(LIBFT).a lib_$(NAME).a
-	@$(CC) -c $(CCFLAGS) $(INC_FLAGS) $< -o $@
+client: all $(SRC) $(CLIENT)
+	@$(CC) $(FLAGS) $(INC_FLAGS) $(^) $(CLIENT).c -o $(CLIENT) $(LIBFT)
 
 clean:
-	@make clean -s --directory=$(LIBFT)
-	@rm -rf $(OBJ_DIR)
+	@make clean --no-print-directory -C $(LIBFT_DIR)
 
 fclean: clean
-	@make fclean -s --directory=$(LIBFT) 
-	@rm -rf lib_$(NAME).a $(SERVER) $(CLIENT) $(SERVER)_bonus $(CLIENT)_bonus $(SERVER).dSYM $(CLIENT).dSYM 
+	@make fclean --no-print-directory -C $(LIBFT_DIR) 
+	@rm -rf lib_$(NAME).a $(SERVER) $(CLIENT) $(SERVER)_bonus $(CLIENT)_bonus
 
 re: fclean all
 
-bonus: $(OBJ) server_bonus client_bonus
+bonus: $(LIBFT_DIR)
+	@make --no-print-directory -C $(LIBFT_DIR)
 
-server_bonus:
-	@$(CC) $(CCFLAGS) $(INC_FLAGS) $(SERVER)_bonus.c -o $(SERVER)_bonus -L. -l_$(NAME)
+server_bonus: bonus $(B_SERVER)
+	@$(CC) $(FLAGS) $(INC_FLAGS) $(^) $(B_SERVER).c -o $(B_SERVER) $(LIBFT)
 
-client_bonus:
-	@$(CC) $(CCFLAGS) $(INC_FLAGS) $(CLIENT)_bonus.c -o $(CLIENT)_bonus -L. -l_$(NAME)
-
-debug: $(OBJ)
-	@$(CC) $(CCFLAGS) $(INC_FLAGS) $(DEBUG_FLAGS) $(SERVER).c -o $(SERVER) -L. -l_$(NAME)
-	@$(CC) $(CCFLAGS) $(INC_FLAGS) $(DEBUG_FLAGS) $(CLIENT).c -o $(CLIENT) -L. -l_$(NAME)
+client_bonus: bonus $(B_CLIENT)
+	@$(CC) $(FLAGS) $(INC_FLAGS) $(^) $(B_CLIENT).c -o $(B_CLIENT) $(LIBFT)
