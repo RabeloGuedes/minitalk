@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 18:34:03 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/09/13 15:20:50 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:20:23 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	handle_signal_bonus(int signal, siginfo_t *siginfo, void *addr)
 		bits_counter = 0;
 		if (c == 0 && message)
 		{
-			if (kill(siginfo->si_pid, SIGUSR1) == - 1)
+			if (kill(siginfo->si_pid, SIGUSR1) == -1)
 				ft_putendl_fd("Could not notify the client!", 2);
 		}
 		if (!handle_string(message, c, &chars_counter))

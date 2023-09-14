@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 08:54:35 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/09/13 15:20:50 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:19:45 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_pid_valid(char *pid_str)
 {
-	size_t	pid_str_len;
+	size_t				pid_str_len;
 	unsigned long long	pid;
 
 	pid_str_len = ft_strlen(pid_str);
