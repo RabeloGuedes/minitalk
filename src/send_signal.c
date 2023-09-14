@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 23:26:37 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/09/13 15:20:50 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:19:07 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	send_signal(pid_t server_pid, unsigned char c)
 		{
 			if (kill(server_pid, SIGUSR2) == -1)
 			{
-				ft_putendl_fd("Error: Message not completely receveid!", 2);
+				ft_putendl_fd("Error: Message not completely received!", 2);
 				exit(EXIT_FAILURE);
 			}
 		}
@@ -31,7 +31,7 @@ void	send_signal(pid_t server_pid, unsigned char c)
 		{
 			if (kill(server_pid, SIGUSR1) == -1)
 			{
-				ft_putendl_fd("Error: Message not completely receveid!", 2);
+				ft_putendl_fd("Error: Message not completely received!", 2);
 				exit(EXIT_FAILURE);
 			}
 		}
