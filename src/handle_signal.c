@@ -6,7 +6,7 @@
 /*   By: arabelo- <arabelo-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 23:38:59 by arabelo-          #+#    #+#             */
-/*   Updated: 2023/09/13 15:20:50 by arabelo-         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:03:03 by arabelo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ void	handle_signal(int signal)
 	{
 		bits_counter = 0;
 		if (!handle_string(message, c, &chars_counter))
+		{
+			message = NULL;
 			return ;
+		}
 		message = get_string(message, c, chars_counter);
 		c = 0;
 	}
