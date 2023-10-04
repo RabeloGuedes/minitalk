@@ -1,6 +1,6 @@
 {
 	"files.associations": {
 		"minitalk.h": "c",
-		"includePath": ["../libft/inc/"],
+		"includePath": "${workspaceFolder}/**",
 	}
 }
