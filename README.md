@@ -125,7 +125,7 @@ Project from [42](https://www.42lisboa.com/) - Rank 2 - Minitalk
 ## ⚡ Testing the project
 
 ```
-	GitHub Copilot: To test this project, it is necessary to be on a UNIX system, in this case, Linux.
+	To test this project, it is necessary to be on a UNIX system, in this case, Linux.
 	After running the 'make' command, the 'server' and 'client' programs will be created.
 	To run the program, simply execute the './server' and './client' commands.
 	The 'server' program must be executed first, as it is responsible for receiving messages and at the beginning of the program, it will show its PID.
@@ -207,7 +207,7 @@ Projekt von [42](https://www.42lisboa.com/) - Rank 2 - Minitalk
 ## ⚡ Projekt Testing
 
 ```
-	GitHub Copilot: GitHub Copilot: Um dieses Projekt zu testen, ist es notwendig, auf einem UNIX-System zu sein, in diesem Fall Linux.
+	Um dieses Projekt zu testen, ist es notwendig, auf einem UNIX-System zu sein, in diesem Fall Linux.
 	Nach dem Ausführen des 'make'-Befehls werden die 'server' und 'client'-Programme erstellt.
 	Um das Programm auszuführen, führen Sie einfach die Befehle './server' und './client' aus.
 	Das 'server'-Programm muss zuerst ausgeführt werden, da es für den Empfang von Nachrichten verantwortlich ist und am Anfang des Programms seine PID anzeigen wird.
