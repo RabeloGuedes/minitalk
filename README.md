@@ -5,7 +5,7 @@
     Saiba mais
   </summary>
   
-  # Libft
+  # Minitalk
 Projeto da [42](https://www.42lisboa.com) - Rank 2 - Minitalk
 
 <details>
@@ -84,7 +84,7 @@ Projeto da [42](https://www.42lisboa.com) - Rank 2 - Minitalk
     More
   </summary>
   
-  # Libft
+  # Minitalk
 Project from [42](https://www.42lisboa.com/) - Rank 2 - Minitalk
 
 <details>
@@ -164,7 +164,7 @@ Project from [42](https://www.42lisboa.com/) - Rank 2 - Minitalk
     Mehr
   </summary>
   
-  # Libft
+  # Minitalk
 Projekt von [42](https://www.42lisboa.com/) - Rank 2 - Minitalk
 
 <details>
